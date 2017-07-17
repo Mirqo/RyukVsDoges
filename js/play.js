@@ -41,18 +41,6 @@ var playState = {
       this.enemies = game.add.group();
       this.enemies.enableBody = true;
       this.enemies.physicsBodyType = Phaser.Physics.ARCADE;
-      for (var i = 0; i < 1; i++){
-         var c = this.enemies.create(game.world.randomX,game.world.randomY , 'angryDog');
-         c.anchor.setTo(0.5,0.5);
-         c.frame = 0;
-         c.name = 'angryDoge';
-         c.health = 3;
-         c.immortal = false;
-         c.animations.add('walkDown',[0,1,2,3], 10, true);
-         c.animations.add('walkLeft',[4,5,6,7], 10, true);
-         c.animations.add('walkRight',[8,9,10,11], 10, true);
-         c.animations.add('walkUp',[12,13,14,15], 10, true);
-      }
 
       this.player = game.add.sprite(game.world.width/2, game.world.height/2, 'playerSheet');
       game.physics.enable(this.player, Phaser.Physics.ARCADE);
