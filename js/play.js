@@ -47,7 +47,7 @@ var playState = {
       this.player.body.collideWorldBounds =true;
       this.player.anchor.setTo(0.5,0.5);
       this.player.frame = 0;
-      this.player.health = 10;
+      this.player.health = 20;
       this.player.immortal = false;
       this.player.animations.add('walkDown',[0,1,2,3], 10, true);
       this.player.animations.add('walkLeft',[4,5,6,7], 10, true);
@@ -80,7 +80,7 @@ var playState = {
       this.slashSound = game.add.audio('slashSound', 0.1);
 
       //setInterval(this.spawnEnemy(), 1000);
-      game.time.events.loop(Phaser.Timer.SECOND, this.spawnEnemy, this);
+      game.time.events.loop(2000, this.spawnEnemy, this);
 
       game.endTime = Date.now();
 
@@ -245,10 +245,10 @@ var playState = {
                game.score+=10;
                this.player.health += 0.5;
             }
-            if (this.player.health > 10){
-               this.player.health = 10;
+            if (this.player.health > 20){
+               this.player.health = 20;
             }
-            this.myHealthBar.setPercent(this.player.health*10);
+            this.myHealthBar.setPercent(this.player.health*5);
          }
          enemy.immortal = true;
          var tween = game.add.tween(enemy);
@@ -265,7 +265,7 @@ var playState = {
       if (player.immortal === false){
          this.dmgFlash();
          player.damage(1);
-         this.myHealthBar.setPercent(this.player.health*10);
+         this.myHealthBar.setPercent(this.player.health*5);
          player.immortal = true;
          setTimeout(function (){
             player.immortal = false;
